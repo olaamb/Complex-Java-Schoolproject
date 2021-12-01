@@ -1,9 +1,6 @@
 package se.iths.springbootproject.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class ConsumablesEntity {
@@ -15,6 +12,18 @@ public class ConsumablesEntity {
     private String Fruit;
     private String Meat;
     private String Vegetables;
+
+    @ManyToOne
+    @JoinColumn(name = "backpack_backpackid")
+    private BackpackEntity backpack;
+
+    public BackpackEntity getBackpack() {
+        return backpack;
+    }
+
+    public void setBackpack(BackpackEntity backpack) {
+        this.backpack = backpack;
+    }
 
     public ConsumablesEntity(String fruit, String meat, String vegetables) {
         Fruit = fruit;

@@ -1,9 +1,6 @@
 package se.iths.springbootproject.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class ResourcesEntity {
@@ -15,6 +12,18 @@ public class ResourcesEntity {
     private String wood;
     private String stone;
     private String ore;
+
+    @ManyToOne
+    @JoinColumn(name = "backpack_backpackid")
+    private BackpackEntity backpack;
+
+    public BackpackEntity getBackpack() {
+        return backpack;
+    }
+
+    public void setBackpack(BackpackEntity backpack) {
+        this.backpack = backpack;
+    }
 
     public ResourcesEntity(String wood, String stone, String ore) {
         this.wood = wood;

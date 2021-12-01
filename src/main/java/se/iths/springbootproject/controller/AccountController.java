@@ -33,7 +33,7 @@ public class AccountController {
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<Optional<AccountEntity>> findItemById(@PathVariable Long id) {
+    public ResponseEntity<Optional<AccountEntity>> findAccountById(@PathVariable Long id) {
         Optional<AccountEntity> foundAccount = accountService.findAccountById(id);
         return new ResponseEntity<>(foundAccount, HttpStatus.OK);
 

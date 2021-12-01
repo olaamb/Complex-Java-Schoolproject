@@ -17,6 +17,9 @@ public class CharacterEntity {
     @JoinColumn(name = "account_accountid")
     private AccountEntity account;
 
+    @OneToOne
+    private BackpackEntity backpack;
+
     public AccountEntity getAccount() {
         return account;
     }

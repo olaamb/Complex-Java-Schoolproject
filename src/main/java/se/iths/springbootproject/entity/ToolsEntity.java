@@ -1,10 +1,7 @@
 package se.iths.springbootproject.entity;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class ToolsEntity {
@@ -17,6 +14,18 @@ public class ToolsEntity {
     private String hammer;
     private String sickle;
     private String pickaxe;
+
+    @ManyToOne
+    @JoinColumn(name = "backpack_backpackid")
+    private BackpackEntity backpack;
+
+    public BackpackEntity getBackpack() {
+        return backpack;
+    }
+
+    public void setBackpack(BackpackEntity backpack) {
+        this.backpack = backpack;
+    }
 
     public ToolsEntity(String axe, String hammer, String sickle, String pickaxe) {
         this.axe = axe;
@@ -66,4 +75,6 @@ public class ToolsEntity {
     public void setPickaxe(String pickaxe) {
         this.pickaxe = pickaxe;
     }
+
+
 }
