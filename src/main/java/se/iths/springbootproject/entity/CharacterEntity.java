@@ -1,9 +1,6 @@
 package se.iths.springbootproject.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 
 @Entity
@@ -15,6 +12,18 @@ public class CharacterEntity {
 
 
     private String charactername;
+
+    @ManyToOne
+    @JoinColumn(name = "account_accountid")
+    private AccountEntity account;
+
+    public AccountEntity getAccount() {
+        return account;
+    }
+
+    public void setAccount(AccountEntity account) {
+        this.account = account;
+    }
 
 
     public CharacterEntity(String charactername) {

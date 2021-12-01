@@ -1,9 +1,8 @@
 package se.iths.springbootproject.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class AccountEntity {
@@ -11,9 +10,10 @@ public class AccountEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long accountid;
-
-
     private String accountname;
+
+    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
+    private List <CharacterEntity> characters = new ArrayList<>();
 
     public AccountEntity(String accountname) {
         this.accountname = accountname;
@@ -35,6 +35,16 @@ public class AccountEntity {
 
     public void setAccountname(String accountname) {
         this.accountname = accountname;
+    }
+
+    public List<CharacterEntity> getCharacters()
+    {
+        return characters;
+    }
+
+    public void setCharacters(List<CharacterEntity> characters)
+    {
+        this.characters = characters;
     }
 }
 
