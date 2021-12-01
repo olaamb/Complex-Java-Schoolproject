@@ -4,13 +4,13 @@ package se.iths.springbootproject.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import se.iths.springbootproject.entity.AccountEntity;
 import se.iths.springbootproject.entity.BackpackEntity;
-import se.iths.springbootproject.service.AccountService;
 import se.iths.springbootproject.service.BackpackService;
 
 import java.util.Optional;
 
+@RestController
+@RequestMapping("backpacks")
 public class BackpackController {
 
     private final BackpackService backpackService;
