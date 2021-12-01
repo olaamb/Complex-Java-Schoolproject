@@ -1,4 +1,7 @@
 package se.iths.springbootproject.repository;
 
-public interface CharacterRepo {
+import org.springframework.data.repository.CrudRepository;
+import se.iths.springbootproject.entity.CharacterEntity;
+
+public interface CharacterRepo extends CrudRepository<CharacterEntity, Long> {
 }

@@ -1,4 +1,7 @@
 package se.iths.springbootproject.repository;
 
-public interface ToolsRepo {
+import org.springframework.data.repository.CrudRepository;
+import se.iths.springbootproject.entity.ToolsEntity;
+
+public interface ToolsRepo extends CrudRepository<ToolsEntity, Long> {
 }
