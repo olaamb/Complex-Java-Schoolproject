@@ -23,7 +23,6 @@ public class BackpackEntity {
     private List<ConsumablesEntity> consumables = new ArrayList<>();
 
     @OneToOne
-    @JoinColumn(name = "character_characterid")
     private CharacterEntity character;
 
     public CharacterEntity getCharacter() {

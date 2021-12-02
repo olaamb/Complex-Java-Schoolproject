@@ -14,7 +14,6 @@ public class ConsumablesEntity {
     private String vegetables;
 
     @ManyToOne
-    @JoinColumn(name = "backpack_backpackid")
     private BackpackEntity backpack;
 
     public BackpackEntity getBackpack() {

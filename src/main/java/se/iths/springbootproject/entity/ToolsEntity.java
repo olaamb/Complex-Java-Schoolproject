@@ -16,7 +16,6 @@ public class ToolsEntity {
     private String pickaxe;
 
     @ManyToOne
-    @JoinColumn(name = "backpack_backpackid")
     private BackpackEntity backpack;
 
     public BackpackEntity getBackpack() {

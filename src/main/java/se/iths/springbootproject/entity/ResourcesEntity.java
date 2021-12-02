@@ -14,7 +14,6 @@ public class ResourcesEntity {
     private String ore;
 
     @ManyToOne
-    @JoinColumn(name = "backpack_backpackid")
     private BackpackEntity backpack;
 
     public BackpackEntity getBackpack() {
