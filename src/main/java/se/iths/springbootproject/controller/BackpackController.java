@@ -13,36 +13,36 @@ import java.util.Optional;
 @RequestMapping("backpacks")
 public class BackpackController {
 
-    private final BackpackService backpackService;
+    private final BackpackService backpackservice;
 
     public BackpackController(BackpackService backpackService)
     {
-        this.backpackService = backpackService;
+        this.backpackservice = backpackService;
     }
 
     @PostMapping
     public ResponseEntity<BackpackEntity> createBackpack(@RequestBody BackpackEntity backpackEntity)
     {
-        BackpackEntity createdBackpack = backpackService.createBackpack(backpackEntity);
+        BackpackEntity createdBackpack = backpackservice.createBackpack(backpackEntity);
         return new ResponseEntity<>(createdBackpack, HttpStatus.CREATED);
     }
 
     @DeleteMapping("{id}")
     public ResponseEntity<Void> deleteBackpack(@PathVariable Long id) {
-        backpackService.deleteBackpack(id);
+        backpackservice.deleteBackpack(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @GetMapping("{id}")
     public ResponseEntity<Optional<BackpackEntity>> findBackpackById(@PathVariable Long id) {
-        Optional<BackpackEntity> foundBackpack = backpackService.findBackpackById(id);
+        Optional<BackpackEntity> foundBackpack = backpackservice.findBackpackById(id);
         return new ResponseEntity<>(foundBackpack, HttpStatus.OK);
 
     }
 
     @GetMapping()
     public ResponseEntity<Iterable<BackpackEntity>> findAllBackpacks() {
-        Iterable<BackpackEntity> allBackpacks = backpackService.findAllBackpacks();
+        Iterable<BackpackEntity> allBackpacks = backpackservice.findAllBackpacks();
         return new ResponseEntity<>(allBackpacks, HttpStatus.OK);
     }
 

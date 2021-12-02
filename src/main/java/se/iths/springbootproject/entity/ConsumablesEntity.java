@@ -9,9 +9,9 @@ public class ConsumablesEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long consumablesid;
 
-    private String Fruit;
-    private String Meat;
-    private String Vegetables;
+    private String fruit;
+    private String meat;
+    private String vegetables;
 
     @ManyToOne
     @JoinColumn(name = "backpack_backpackid")
@@ -26,9 +26,9 @@ public class ConsumablesEntity {
     }
 
     public ConsumablesEntity(String fruit, String meat, String vegetables) {
-        Fruit = fruit;
-        Meat = meat;
-        Vegetables = vegetables;
+        this.fruit = fruit;
+        this.meat = meat;
+        this.vegetables = vegetables;
     }
     public ConsumablesEntity(){}
 
@@ -41,26 +41,26 @@ public class ConsumablesEntity {
     }
 
     public String getFruit() {
-        return Fruit;
+        return fruit;
     }
 
     public void setFruit(String fruit) {
-        Fruit = fruit;
+        this.fruit = fruit;
     }
 
     public String getMeat() {
-        return Meat;
+        return meat;
     }
 
     public void setMeat(String meat) {
-        Meat = meat;
+        this.meat = meat;
     }
 
     public String getVegetables() {
-        return Vegetables;
+        return vegetables;
     }
 
     public void setVegetables(String vegetables) {
-        Vegetables = vegetables;
+        this.vegetables = vegetables;
     }
 }
