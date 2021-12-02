@@ -22,9 +22,22 @@ public class BackpackEntity {
     @OneToMany(mappedBy = "backpack", cascade = CascadeType.ALL)
     private List<ConsumablesEntity> consumables = new ArrayList<>();
 
+    @OneToOne
+    @JoinColumn(name = "character_characterid")
+    private CharacterEntity character;
+
+    public CharacterEntity getCharacter() {
+        return character;
+    }
+
+    public void setCharacter(CharacterEntity character) {
+        this.character = character;
+    }
+
     public BackpackEntity(String backpackname) {
         this.backpackname = backpackname;
     }
+
     public BackpackEntity(){}
 
     public Long getBackpackid() {

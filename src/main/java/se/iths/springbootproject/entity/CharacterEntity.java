@@ -2,7 +2,6 @@ package se.iths.springbootproject.entity;
 
 import javax.persistence.*;
 
-
 @Entity
 public class CharacterEntity {
 
@@ -10,30 +9,36 @@ public class CharacterEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long characterid;
 
-
     private String charactername;
-
-    @ManyToOne
-    @JoinColumn(name = "account_accountid")
-    private AccountEntity account;
 
     @OneToOne
     private BackpackEntity backpack;
 
-    public AccountEntity getAccount() {
-        return account;
-    }
-
-    public void setAccount(AccountEntity account) {
-        this.account = account;
-    }
-
+    @ManyToOne
+    @JoinColumn(name = "accounts_accountid")
+    private AccountEntity accounts;
 
     public CharacterEntity(String charactername) {
         this.charactername = charactername;
     }
 
     public CharacterEntity(){}
+
+    public AccountEntity getAccounts() {
+        return accounts;
+    }
+
+    public void setAccounts(AccountEntity accounts) {
+        this.accounts = accounts;
+    }
+
+    public BackpackEntity getBackpack() {
+        return backpack;
+    }
+
+    public void setBackpack(BackpackEntity backpack) {
+        this.backpack = backpack;
+    }
 
     public Long getCharacterid() {
         return characterid;

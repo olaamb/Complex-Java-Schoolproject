@@ -12,7 +12,7 @@ public class AccountEntity {
     private Long accountid;
     private String accountname;
 
-    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "accounts", cascade = CascadeType.ALL)
     private List <CharacterEntity> characters = new ArrayList<>();
 
     public AccountEntity(String accountname) {
