@@ -62,4 +62,5 @@ public class ConsumablesEntity {
     public void setVegetables(String vegetables) {
         this.vegetables = vegetables;
     }
+
 }

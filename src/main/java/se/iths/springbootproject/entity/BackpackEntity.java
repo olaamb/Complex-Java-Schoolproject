@@ -80,4 +80,22 @@ public class BackpackEntity {
     }
 
 
+    public void addConsumables(ConsumablesEntity consumables) {
+        consumables.setFruit(consumables.getFruit());
+        consumables.setMeat(consumables.getMeat());
+        consumables.setVegetables(consumables.getVegetables());
+    }
+
+    public void addTools(ToolsEntity tools) {
+        tools.setAxe(tools.getAxe());
+        tools.setHammer(tools.getHammer());
+        tools.setSickle(tools.getSickle());
+        tools.setPickaxe(tools.getPickaxe());
+    }
+
+    public void addResources(ResourcesEntity resources) {
+        resources.setWood(resources.getWood());
+        resources.setStone(resources.getStone());
+        resources.setOre(resources.getOre());
+    }
 }

@@ -63,4 +63,5 @@ public class ResourcesEntity {
     public void setOre(String ore) {
         this.ore = ore;
     }
+
 }

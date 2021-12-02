@@ -46,6 +46,11 @@ public class AccountEntity {
     {
         this.characters = characters;
     }
+
+    public void addCharacter(CharacterEntity character) {
+        characters.add(character);
+        character.setAccount(this);
+    }
 }
 
 

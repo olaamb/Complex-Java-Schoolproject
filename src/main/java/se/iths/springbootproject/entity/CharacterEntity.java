@@ -54,4 +54,13 @@ public class CharacterEntity {
     public void setCharactername(String charactername) {
         this.charactername = charactername;
     }
+
+    public void setAccount(AccountEntity accounts)
+    {
+        this.accounts = accounts;
+    }
+
+    public void addBackpack(BackpackEntity backpack) {
+        backpack.setCharacter(this);
+    }
 }
