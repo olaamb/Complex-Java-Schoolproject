@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import se.iths.springbootproject.entity.ConsumablesEntity;
 import se.iths.springbootproject.repository.ConsumablesRepo;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.Optional;
 
 @Service
@@ -16,13 +17,16 @@ public class ConsumablesService {
         this.consumablesRepo = consumablesRepo;
     }
 
-    public ConsumablesEntity createConsumables(ConsumablesEntity consumablesEntity)
-    {
+    public ConsumablesEntity createConsumables(ConsumablesEntity consumablesEntity) {
         return consumablesRepo.save(consumablesEntity);
     }
 
-    public Optional<ConsumablesEntity> findConsumablesById(Long consumablesid)
-    {
+    public void deleteConsumables(Long consumablesid) {
+        ConsumablesEntity foundConsumables = consumablesRepo.findById(consumablesid).orElseThrow(EntityNotFoundException::new);
+        consumablesRepo.deleteById(foundConsumables.getConsumablesid());
+    }
+
+    public Optional<ConsumablesEntity> findConsumablesById(Long consumablesid) {
         return consumablesRepo.findById(consumablesid);
     }
 

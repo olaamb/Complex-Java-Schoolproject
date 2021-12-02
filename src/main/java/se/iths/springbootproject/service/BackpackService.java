@@ -20,6 +20,7 @@ public class BackpackService {
     public BackpackEntity createBackpack(BackpackEntity backpackEntity) {
         return backpackRepo.save(backpackEntity);
     }
+
     public void deleteBackpack(Long backpackid) {
         BackpackEntity foundBackpack = backpackRepo.findById(backpackid).orElseThrow(EntityNotFoundException::new);
         backpackRepo.deleteById(foundBackpack.getBackpackid());
