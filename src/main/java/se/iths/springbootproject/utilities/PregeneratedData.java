@@ -30,10 +30,10 @@ public class PregeneratedData {
         BackpackEntity backpack2 = new BackpackEntity("Anders Backpack");
         BackpackEntity backpack3 = new BackpackEntity("Björns Backpack");
 
-        ConsumablesEntity consumables1 = new ConsumablesEntity("Apples", "Fish", "Onion");
-        ConsumablesEntity consumables2 = new ConsumablesEntity("Pears", "Beef", "Cucumber");
+        ConsumablesEntity consumables1 = new ConsumablesEntity("Apples");
+        ConsumablesEntity consumables2 = new ConsumablesEntity("Beef");
 
-        ToolsEntity tools1 = new ToolsEntity("Stone Axe","Stone Hammer","Stone Sickle","Stone Pickaxe");
+        ToolsEntity tools1 = new ToolsEntity("Stone Axe");
 
         ResourcesEntity resources1 = new ResourcesEntity("Oak","Rough Stone","Copper");
 
@@ -58,7 +58,7 @@ public class PregeneratedData {
         entityManager.persist(account1);
         entityManager.persist(account2);
 
-        entityManager.persist(character1);
+/*        entityManager.persist(character1);
         entityManager.persist(character2);
         entityManager.persist(character3);
 
@@ -71,7 +71,7 @@ public class PregeneratedData {
 
         entityManager.persist(tools1);
 
-        entityManager.persist(resources1);
+        entityManager.persist(resources1);*/
     }
 
 }

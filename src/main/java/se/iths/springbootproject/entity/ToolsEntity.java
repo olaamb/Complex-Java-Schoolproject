@@ -10,10 +10,8 @@ public class ToolsEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long toolsid;
 
-    private String axe;
-    private String hammer;
-    private String sickle;
-    private String pickaxe;
+    private String toolsname;
+
 
     @ManyToOne
     private BackpackEntity backpack;
@@ -26,11 +24,8 @@ public class ToolsEntity {
         this.backpack = backpack;
     }
 
-    public ToolsEntity(String axe, String hammer, String sickle, String pickaxe) {
-        this.axe = axe;
-        this.hammer = hammer;
-        this.sickle = sickle;
-        this.pickaxe = pickaxe;
+    public ToolsEntity(String toolsname) {
+        this.toolsname = toolsname;
     }
     
     public ToolsEntity(){}
@@ -43,37 +38,12 @@ public class ToolsEntity {
         this.toolsid = toolsid;
     }
 
-    public String getAxe() {
-        return axe;
+    public String getToolsname() {
+        return toolsname;
     }
 
-    public void setAxe(String axe) {
-        this.axe = axe;
+    public void setToolsname(String toolsname) {
+        this.toolsname = toolsname;
     }
-
-    public String getHammer() {
-        return hammer;
-    }
-
-    public void setHammer(String hammer) {
-        this.hammer = hammer;
-    }
-
-    public String getSickle() {
-        return sickle;
-    }
-
-    public void setSickle(String sickle) {
-        this.sickle = sickle;
-    }
-
-    public String getPickaxe() {
-        return pickaxe;
-    }
-
-    public void setPickaxe(String pickaxe) {
-        this.pickaxe = pickaxe;
-    }
-
 
 }

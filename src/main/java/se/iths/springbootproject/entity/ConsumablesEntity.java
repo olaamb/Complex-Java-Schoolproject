@@ -9,9 +9,7 @@ public class ConsumablesEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long consumablesid;
 
-    private String fruit;
-    private String meat;
-    private String vegetables;
+    private String consumablesname;
 
     @ManyToOne
     private BackpackEntity backpack;
@@ -24,10 +22,8 @@ public class ConsumablesEntity {
         this.backpack = backpack;
     }
 
-    public ConsumablesEntity(String fruit, String meat, String vegetables) {
-        this.fruit = fruit;
-        this.meat = meat;
-        this.vegetables = vegetables;
+    public ConsumablesEntity(String consumablesname) {
+        this.consumablesname = consumablesname;
     }
     public ConsumablesEntity(){}
 
@@ -39,28 +35,12 @@ public class ConsumablesEntity {
         this.consumablesid = consumablesid;
     }
 
-    public String getFruit() {
-        return fruit;
+    public String getConsumablesname() {
+        return consumablesname;
     }
 
-    public void setFruit(String fruit) {
-        this.fruit = fruit;
-    }
-
-    public String getMeat() {
-        return meat;
-    }
-
-    public void setMeat(String meat) {
-        this.meat = meat;
-    }
-
-    public String getVegetables() {
-        return vegetables;
-    }
-
-    public void setVegetables(String vegetables) {
-        this.vegetables = vegetables;
+    public void setConsumablesname(String consumablesname) {
+        this.consumablesname = consumablesname;
     }
 
 }

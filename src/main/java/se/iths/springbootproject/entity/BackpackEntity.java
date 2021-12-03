@@ -81,13 +81,13 @@ public class BackpackEntity {
 
 
     public void addConsumables(ConsumablesEntity consumables) {
-        consumables.setFruit(consumables.getFruit());
+        consumables.setConsumablesname(consumables.getConsumablesname());
         consumables.setMeat(consumables.getMeat());
         consumables.setVegetables(consumables.getVegetables());
     }
 
     public void addTools(ToolsEntity tools) {
-        tools.setAxe(tools.getAxe());
+        tools.setToolsname(tools.getToolsname());
         tools.setHammer(tools.getHammer());
         tools.setSickle(tools.getSickle());
         tools.setPickaxe(tools.getPickaxe());
