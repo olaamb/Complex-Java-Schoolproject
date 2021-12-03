@@ -11,6 +11,7 @@ public class BackpackEntity {
     @Id
     @GeneratedValue( strategy = GenerationType.AUTO)
     private Long backpackid;
+
     private String backpackname;
 
     @OneToMany(mappedBy = "backpack", cascade = CascadeType.ALL)
@@ -82,15 +83,10 @@ public class BackpackEntity {
 
     public void addConsumables(ConsumablesEntity consumables) {
         consumables.setConsumablesname(consumables.getConsumablesname());
-        consumables.setMeat(consumables.getMeat());
-        consumables.setVegetables(consumables.getVegetables());
     }
 
     public void addTools(ToolsEntity tools) {
         tools.setToolsname(tools.getToolsname());
-        tools.setHammer(tools.getHammer());
-        tools.setSickle(tools.getSickle());
-        tools.setPickaxe(tools.getPickaxe());
     }
 
     public void addResources(ResourcesEntity resources) {
