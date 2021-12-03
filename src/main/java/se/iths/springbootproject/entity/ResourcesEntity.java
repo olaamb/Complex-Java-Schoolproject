@@ -23,7 +23,7 @@ public class ResourcesEntity {
         this.backpack = backpack;
     }
 
-    public ResourcesEntity(String resourcename, String stone, String ore) {
+    public ResourcesEntity(String resourcename) {
         this.resourcename = resourcename;
     }
 
