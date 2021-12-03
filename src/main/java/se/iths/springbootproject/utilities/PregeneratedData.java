@@ -35,7 +35,7 @@ public class PregeneratedData {
 
         ToolsEntity tools1 = new ToolsEntity("Stone Axe","Stone Hammer","Stone Sickle","Stone Pickaxe");
 
-        ResourcesEntity resources1 = new ResourcesEntity("Oak","Rough Stone","Copper");
+        ResourcesEntity resources1 = new ResourcesEntity("Wood");
 
 
 
