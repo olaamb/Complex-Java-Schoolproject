@@ -9,9 +9,8 @@ public class ResourcesEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long resourcesid;
 
-    private String wood;
-    private String stone;
-    private String ore;
+    private String resourcename;
+
 
     @ManyToOne
     private BackpackEntity backpack;
@@ -24,10 +23,8 @@ public class ResourcesEntity {
         this.backpack = backpack;
     }
 
-    public ResourcesEntity(String wood, String stone, String ore) {
-        this.wood = wood;
-        this.stone = stone;
-        this.ore = ore;
+    public ResourcesEntity(String resourcename, String stone, String ore) {
+        this.resourcename = resourcename;
     }
 
     public ResourcesEntity(){}
@@ -40,28 +37,11 @@ public class ResourcesEntity {
         this.resourcesid = resourcesid;
     }
 
-    public String getWood() {
-        return wood;
+    public String getResourcename() {
+        return resourcename;
     }
 
-    public void setWood(String wood) {
-        this.wood = wood;
+    public void setResourcename(String wood) {
+        this.resourcename = wood;
     }
-
-    public String getStone() {
-        return stone;
-    }
-
-    public void setStone(String stone) {
-        this.stone = stone;
-    }
-
-    public String getOre() {
-        return ore;
-    }
-
-    public void setOre(String ore) {
-        this.ore = ore;
-    }
-
 }

@@ -94,8 +94,6 @@ public class BackpackEntity {
     }
 
     public void addResources(ResourcesEntity resources) {
-        resources.setWood(resources.getWood());
-        resources.setStone(resources.getStone());
-        resources.setOre(resources.getOre());
+        resources.setResourcename(resources.getResourcename());
     }
 }
