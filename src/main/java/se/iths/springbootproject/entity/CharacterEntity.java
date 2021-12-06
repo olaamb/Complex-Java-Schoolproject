@@ -1,5 +1,7 @@
 package se.iths.springbootproject.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -24,6 +26,7 @@ public class CharacterEntity {
 
     public CharacterEntity(){}
 
+    @JsonIgnore
     public AccountEntity getAccounts() {
         return accounts;
     }

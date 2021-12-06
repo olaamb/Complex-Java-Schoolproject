@@ -40,9 +40,9 @@ public class PregeneratedData {
 
     ResourcesEntity resources1 = new ResourcesEntity("Wood");
 
-    account1.getCharacters().add(character1);
-    account1.getCharacters().add(character2);
-    account2.getCharacters().add(character3);
+    account1.addCharacter(character1);
+    account1.addCharacter(character2);
+    account2.addCharacter(character3);
 
 //    character1.getAccounts().add(account1);
 //    character2.getAccounts().add(account1);
@@ -53,9 +53,9 @@ public class PregeneratedData {
         accountRepo.save(account1);
         accountRepo.save(account2);
 
-        characterRepo.save(character1);
-        characterRepo.save(character2);
-        characterRepo.save(character3);
+//        characterRepo.save(character1);
+//        characterRepo.save(character2);
+//        characterRepo.save(character3);
 
 
 /*
