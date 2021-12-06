@@ -15,6 +15,7 @@ public class CharacterEntity {
     private BackpackEntity backpack;
 
     @ManyToOne
+    @JoinColumn(name = "account_accountid")
     private AccountEntity accounts;
 
     public CharacterEntity(String charactername) {

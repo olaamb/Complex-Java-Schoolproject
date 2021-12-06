@@ -15,6 +15,9 @@ public class AccountEntity {
     @OneToMany(mappedBy = "accounts", cascade = CascadeType.ALL)
     private List <CharacterEntity> characters = new ArrayList<>();
 
+    @ManyToMany(mappedBy = "accounts", cascade = CascadeType.ALL)
+    private List <RegionEntity> regions = new ArrayList<>();
+
     public AccountEntity(String accountname) {
         this.accountname = accountname;
     }
@@ -35,6 +38,14 @@ public class AccountEntity {
 
     public void setAccountname(String accountname) {
         this.accountname = accountname;
+    }
+
+    public List<RegionEntity> getRegions() {
+        return regions;
+    }
+
+    public void setRegions(List<RegionEntity> regions) {
+        this.regions = regions;
     }
 
     public List<CharacterEntity> getCharacters()

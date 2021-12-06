@@ -58,14 +58,13 @@ public class PregeneratedData {
         characterRepo.save(character3);
 
 
-
-/*    character1.getBackpack().add(backpack1);
+/*
+    character1.getBackpack().add(backpack1);
     character2.getBackpack().add(backpack2);
     character3.getBackpack().add(backpack3);
 
     backpack1.getConsumables().addConsumables(consumables1);
     backpack2.getConsumables().addConsumables(consumables2);
-    backpack3.getConsumables().addConsumables(consumables3);
 
     backpack3.getTools().addTools(tools1);
 
