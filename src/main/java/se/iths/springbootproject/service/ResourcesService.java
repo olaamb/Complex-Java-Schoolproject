@@ -5,6 +5,7 @@ import se.iths.springbootproject.entity.ResourcesEntity;
 import se.iths.springbootproject.repository.ResourcesRepo;
 
 import javax.persistence.EntityNotFoundException;
+import javax.transaction.Transactional;
 import java.util.Optional;
 
 @Service

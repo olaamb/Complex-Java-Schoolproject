@@ -26,6 +26,7 @@ public class BackpackEntity {
     @OneToOne
     private CharacterEntity character;
 
+    @Transient
     public CharacterEntity getCharacter() {
         return character;
     }
@@ -56,6 +57,7 @@ public class BackpackEntity {
         this.backpackname = backpackname;
     }
 
+    @Transient
     public List<ToolsEntity> getTools() {
         return tools;
     }
@@ -64,6 +66,7 @@ public class BackpackEntity {
         this.tools = tools;
     }
 
+    @Transient
     public List<ResourcesEntity> getResources() {
         return resources;
     }
@@ -72,6 +75,7 @@ public class BackpackEntity {
         this.resources = resources;
     }
 
+    @Transient
     public List<ConsumablesEntity> getConsumables() {
         return consumables;
     }

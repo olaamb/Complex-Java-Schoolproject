@@ -6,6 +6,7 @@ import se.iths.springbootproject.entity.CharacterEntity;
 import se.iths.springbootproject.repository.CharacterRepo;
 
 import javax.persistence.EntityNotFoundException;
+import javax.transaction.Transactional;
 import java.util.Optional;
 
 @Service

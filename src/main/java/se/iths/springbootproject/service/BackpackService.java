@@ -5,6 +5,7 @@ import se.iths.springbootproject.entity.BackpackEntity;
 import se.iths.springbootproject.repository.BackpackRepo;
 
 import javax.persistence.EntityNotFoundException;
+import javax.transaction.Transactional;
 import java.util.Optional;
 
 @Service

@@ -5,6 +5,7 @@ import se.iths.springbootproject.entity.ConsumablesEntity;
 import se.iths.springbootproject.repository.ConsumablesRepo;
 
 import javax.persistence.EntityNotFoundException;
+import javax.transaction.Transactional;
 import java.util.Optional;
 
 @Service
