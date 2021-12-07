@@ -20,10 +20,9 @@ public class AccountController {
     }
 
     @PostMapping
-    public ResponseEntity<AccountEntity> createAccount(@RequestBody AccountEntity accountEntity)
-    {
-        AccountEntity createdAccount = accountService.createAccount(accountEntity);
-        return new ResponseEntity<>(createdAccount, HttpStatus.CREATED);
+    public ResponseEntity<AccountEntity> createAccount(@RequestBody AccountEntity accountEntity){
+            AccountEntity createdAccount = accountService.createAccount(accountEntity);
+            return new ResponseEntity<>(createdAccount, HttpStatus.CREATED);
     }
 
     @DeleteMapping("{id}")

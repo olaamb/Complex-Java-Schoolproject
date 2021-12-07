@@ -5,7 +5,6 @@ import se.iths.springbootproject.entity.AccountEntity;
 import se.iths.springbootproject.repository.AccountRepo;
 
 import javax.persistence.EntityNotFoundException;
-import javax.transaction.Transactional;
 import java.util.Optional;
 
 @Service
