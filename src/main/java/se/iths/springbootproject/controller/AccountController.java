@@ -33,14 +33,13 @@ public class AccountController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
+    //TODO: Need to fix exception handling, keeps getting error 500
     @GetMapping("{id}")
-    public ResponseEntity<Optional<AccountEntity>> findAccountById(@PathVariable Long id) {
-        Optional<AccountEntity> foundAccount = accountService.findAccountById(id);
-        if (foundAccount == null || foundAccount.isEmpty()) {
-            throw new ListNotFoundOrEmptyException().getLocalizedMessage();
-        }else {
-            return new ResponseEntity<>(foundAccount, HttpStatus.OK);
-        }
+    public ResponseEntity<AccountEntity> findAccountById(@PathVariable Long id) {
+        AccountEntity foundAccount = accountService.findAccountById(id)
+                .orElseThrow(() -> new ListNotFoundOrEmptyException("List not found or does not exist with id: " + id));
+
+        return new ResponseEntity<>(foundAccount, HttpStatus.OK);
     }
 
     @GetMapping()
