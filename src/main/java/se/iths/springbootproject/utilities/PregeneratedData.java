@@ -44,11 +44,6 @@ public class PregeneratedData {
     account1.addCharacter(character2);
     account2.addCharacter(character3);
 
-//    character1.getAccounts().add(account1);
-//    character2.getAccounts().add(account1);
-//    character3.getAccounts().add(account2);
-
-
 
         accountRepo.save(account1);
         accountRepo.save(account2);

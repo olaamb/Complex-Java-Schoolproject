@@ -1,12 +1,11 @@
 package se.iths.springbootproject.exception;
 
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.http.HttpStatus;
 
 import java.time.LocalDateTime;
 
-public class ApiError extends RuntimeException {
+public class ApiError {
 
     private HttpStatus status;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
@@ -14,12 +13,11 @@ public class ApiError extends RuntimeException {
     private String message;
     private String debugMessage;
 
-    private ApiError(){
+    private ApiError() {
         timestamp = LocalDateTime.now();
     }
 
-    public ApiError(HttpStatus status, String message, Throwable ex)
-    {
+    public ApiError(HttpStatus status, String message, Throwable ex) {
         this();
         this.status = status;
         this.message = message;
@@ -42,7 +40,6 @@ public class ApiError extends RuntimeException {
         this.timestamp = timestamp;
     }
 
-    @Override
     public String getMessage() {
         return message;
     }

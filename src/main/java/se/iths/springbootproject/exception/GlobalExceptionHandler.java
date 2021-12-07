@@ -11,59 +11,50 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-
 @ControllerAdvice
-public class GlobalExceptionHandler extends ResponseEntityExceptionHandler
-{
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
-    private ResponseEntity<Object> buildResponseEntity(ApiError apiError)
-    {
+    private ResponseEntity<Object> buildResponseEntity(ApiError apiError) {
         return new ResponseEntity<>(apiError, apiError.getStatus());
     }
 
+    // CUSTOM EXCEPTION
     @ExceptionHandler({EntityNotFoundException.class})
-    public ResponseEntity<Object> entityNotFoundException(EntityNotFoundException ex)
-    {
-        logger.info(getClass().getName());
-        String errorMessage = "Entity not found";
+    public ResponseEntity<Object> entityNotFoundException(EntityNotFoundException ex) {
+        String errorMessage = "Entity not found.";
 
         return buildResponseEntity(new ApiError(HttpStatus.NOT_FOUND, errorMessage, ex));
     }
 
-    //Base exceptions
 
+    // BASE EXCEPTIONS
     @Override
     protected ResponseEntity<Object> handleHttpMessageNotReadable(
-            HttpMessageNotReadableException ex, HttpHeaders headers, HttpStatus status, WebRequest request)
-    {
-        logger.info(ex.getClass().getName());
-        String errorMessage = "Malformed JSIB request.";
+            HttpMessageNotReadableException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
+        String errorMessage = "Malformed JSON request.";
         return buildResponseEntity(new ApiError(HttpStatus.BAD_REQUEST, errorMessage, ex));
     }
 
-    // TODO: Yellow text is fancy for to do lists
+    // TODO: Check how to allow request methods on Java method level
 //    @Override
 //    protected ResponseEntity<Object> handleHttpRequestMethodNotSupported(
-//            HttpRequestMethodNotSupportedException ex, HttpHeaders headers, HttpStatus status, WebRequest request)
-//    {
+//            HttpRequestMethodNotSupportedException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
 //        logger.info(ex.getClass().getName());
 //        StringBuilder builder = new StringBuilder();
 //        builder.append(ex.getMethod());
-//        builder.append(" method is not supported for thjos request");
-//        Objects.requireNonNull(ex.getSupportedHttpMethods().forEach(t -> builder.append(t + "")));
+//        builder.append(" method is not supported for this request. Supported methods are ");
+//        Objects.requireNonNull(ex.getSupportedHttpMethods()).forEach(t -> builder.append(t + " "));
 //
 //        return buildResponseEntity(new ApiError(HttpStatus.METHOD_NOT_ALLOWED, builder.toString(), ex));
 //    }
 
     @ExceptionHandler({Exception.class})
-    public ResponseEntity<Object> handleAll(Exception ex, WebRequest request)
-    {
-        logger.info(ex.getClass().getName());
-        logger.error("Error: ", ex);
-        String errorMessage = "malformed JSON request";
+    public ResponseEntity<Object> handleAll(Exception ex, WebRequest request) {
+        String errorMessage = "An unexpected error occurred.";
+
         return buildResponseEntity(new ApiError(HttpStatus.INTERNAL_SERVER_ERROR, errorMessage, ex));
     }
+
 
 
 }
