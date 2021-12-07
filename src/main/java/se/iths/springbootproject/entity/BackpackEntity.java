@@ -1,5 +1,7 @@
 package se.iths.springbootproject.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +28,7 @@ public class BackpackEntity {
     @OneToOne
     private CharacterEntity character;
 
-    @Transient
+    @JsonIgnore
     public CharacterEntity getCharacter() {
         return character;
     }
@@ -57,7 +59,6 @@ public class BackpackEntity {
         this.backpackname = backpackname;
     }
 
-    @Transient
     public List<ToolsEntity> getTools() {
         return tools;
     }
@@ -66,7 +67,6 @@ public class BackpackEntity {
         this.tools = tools;
     }
 
-    @Transient
     public List<ResourcesEntity> getResources() {
         return resources;
     }
@@ -75,7 +75,6 @@ public class BackpackEntity {
         this.resources = resources;
     }
 
-    @Transient
     public List<ConsumablesEntity> getConsumables() {
         return consumables;
     }
@@ -85,15 +84,17 @@ public class BackpackEntity {
     }
 
 
-    public void addConsumables(ConsumablesEntity consumables) {
-        consumables.setConsumablesname(consumables.getConsumablesname());
+    public void addConsumables(ConsumablesEntity consumable) {
+        consumables.add(consumable);
+        consumable.setBackpack(this);
+    }
+    public void addResources(ResourcesEntity resource) {
+        resources.add(resource);
+        resource.setBackpack(this);
     }
 
-    public void addTools(ToolsEntity tools) {
-        tools.setToolsname(tools.getToolsname());
-    }
-
-    public void addResources(ResourcesEntity resources) {
-        resources.setResourcename(resources.getResourcename());
+    public void addTools(ToolsEntity tool) {
+        tools.add(tool);
+        tool.setBackpack(this);
     }
 }

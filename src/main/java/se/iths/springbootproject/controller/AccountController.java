@@ -33,7 +33,7 @@ public class AccountController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @GetMapping("{id}")
+/*    @GetMapping("{id}")
     public ResponseEntity<Optional<AccountEntity>> findAccountById(@PathVariable Long id) {
         Optional<AccountEntity> foundAccount = accountService.findAccountById(id);
         if (foundAccount == null || foundAccount.isEmpty()) {
@@ -41,7 +41,7 @@ public class AccountController {
         }else {
             return new ResponseEntity<>(foundAccount, HttpStatus.OK);
         }
-    }
+    }*/
 
     @GetMapping()
     public ResponseEntity<Iterable<AccountEntity>> findAllAccounts() {

@@ -1,5 +1,7 @@
 package se.iths.springbootproject.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -12,8 +14,10 @@ public class ConsumablesEntity {
     private String consumablesname;
 
     @ManyToOne
+    @JoinColumn
     private BackpackEntity backpack;
 
+    @JsonIgnore
     public BackpackEntity getBackpack() {
         return backpack;
     }

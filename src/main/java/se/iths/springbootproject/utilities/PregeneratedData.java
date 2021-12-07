@@ -44,52 +44,29 @@ public class PregeneratedData {
     account1.addCharacter(character2);
     account2.addCharacter(character3);
 
+        character1.addBackpack(backpack1);
+        character2.addBackpack(backpack2);
+        character3.addBackpack(backpack3);
+//        backpack1.setCharacter(character1);
+//        backpack2.setCharacter(character2);
+//        backpack3.setCharacter(character3);
+
+        backpack1.addConsumables(consumables1);
+        backpack2.addConsumables(consumables2);
+        backpack3.addTools(tools1);
+        backpack3.addResources(resources1);
 
         accountRepo.save(account1);
         accountRepo.save(account2);
 
-//        characterRepo.save(character1);
-//        characterRepo.save(character2);
-//        characterRepo.save(character3);
 
+        characterRepo.save(character1);
+        characterRepo.save(character2);
+        characterRepo.save(character3);
 
-/*
-    character1.getBackpack().add(backpack1);
-    character2.getBackpack().add(backpack2);
-    character3.getBackpack().add(backpack3);
-
-    backpack1.getConsumables().addConsumables(consumables1);
-    backpack2.getConsumables().addConsumables(consumables2);
-
-    backpack3.getTools().addTools(tools1);
-
-    backpack3.getResources().addResources(resources1);
-
-    backpackRepo.save(backpack1);
-    backpackRepo.save(backpack2);
-    backpackRepo.save(backpack3);
-
-    consumablesRepo.save(consumables1);
-    consumablesRepo.save(consumables2);
-
-    resourcesRepo.save(resources1);
-
-    toolsRepo.save(tools1);*/
-
-/*        entityManager.persist(character1);
-        entityManager.persist(character2);
-        entityManager.persist(character3);
-
-        entityManager.persist(backpack1);
-        entityManager.persist(backpack1);
-        entityManager.persist(backpack3);
-
-        entityManager.persist(consumables1);
-        entityManager.persist(consumables2);
-
-        entityManager.persist(tools1);
-
-        entityManager.persist(resources1);*/
+        backpackRepo.save(backpack1);
+        backpackRepo.save(backpack2);
+        backpackRepo.save(backpack3);
 };
     }
 }
