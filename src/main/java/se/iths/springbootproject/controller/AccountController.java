@@ -33,7 +33,7 @@ public class AccountController {
                 AccountEntity accountObject = accountService.findAccountByName(tempName);
                 if (accountObject != null)
                 {
-                    throw new EntityAlreadyExistsException("Account with name: " + accountObject + " is already in use.");
+                    throw new EntityAlreadyExistsException("Account with that name is already in use.");
                 }
             }
             AccountEntity createdAccount = accountService.createAccount(accountEntity);
