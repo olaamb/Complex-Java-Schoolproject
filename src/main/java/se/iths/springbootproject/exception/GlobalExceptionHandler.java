@@ -27,7 +27,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
     @ExceptionHandler({ListNotFoundOrEmptyException.class})
-    public ResponseEntity<Object> listNotFoundException(EntityNotFoundException ex) {
+    public ResponseEntity<Object> listNotFoundException(ListNotFoundOrEmptyException ex) {
         String errorMessage = "List not found.";
 
         return buildResponseEntity(new ApiError(HttpStatus.NOT_FOUND, errorMessage, ex));

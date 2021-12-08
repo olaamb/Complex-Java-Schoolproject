@@ -4,6 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import se.iths.springbootproject.entity.AccountEntity;
+import se.iths.springbootproject.exception.EntityNotFoundException;
 import se.iths.springbootproject.exception.ListNotFoundOrEmptyException;
 import se.iths.springbootproject.service.AccountService;
 
