@@ -35,38 +35,34 @@ public class PregeneratedData {
 
     ConsumablesEntity consumables1 = new ConsumablesEntity("Apples");
     ConsumablesEntity consumables2 = new ConsumablesEntity("Beef");
-
     ToolsEntity tools1 = new ToolsEntity("StoneAxe");
-
     ResourcesEntity resources1 = new ResourcesEntity("Wood");
 
     account1.addCharacter(character1);
     account1.addCharacter(character2);
     account2.addCharacter(character3);
 
-        character1.addBackpack(backpack1);
-        character2.addBackpack(backpack2);
-        character3.addBackpack(backpack3);
-//        backpack1.setCharacter(character1);
-//        backpack2.setCharacter(character2);
-//        backpack3.setCharacter(character3);
+    character1.addBackpack(backpack1);
+    character2.addBackpack(backpack2);
+    character3.addBackpack(backpack3);
 
-        backpack1.addConsumables(consumables1);
-        backpack2.addConsumables(consumables2);
-        backpack3.addTools(tools1);
-        backpack3.addResources(resources1);
-
-        accountRepo.save(account1);
-        accountRepo.save(account2);
+    backpack1.addConsumables(consumables1);
+    backpack2.addConsumables(consumables2);
+    backpack3.addTools(tools1);
+    backpack3.addResources(resources1);
 
 
-        characterRepo.save(character1);
-        characterRepo.save(character2);
-        characterRepo.save(character3);
+    accountRepo.save(account1);
+    accountRepo.save(account2);
 
-        backpackRepo.save(backpack1);
-        backpackRepo.save(backpack2);
-        backpackRepo.save(backpack3);
+
+    characterRepo.save(character1);
+    characterRepo.save(character2);
+    characterRepo.save(character3);
+
+    backpackRepo.save(backpack1);
+    backpackRepo.save(backpack2);
+    backpackRepo.save(backpack3);
 };
     }
 }

@@ -13,7 +13,7 @@ public class CharacterEntity {
 
     private String charactername;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private BackpackEntity backpack;
 
     @ManyToOne
@@ -65,6 +65,7 @@ public class CharacterEntity {
     }
 
     public void addBackpack(BackpackEntity backpack) {
+        this.backpack = backpack;
         backpack.setCharacter(this);
     }
 }
