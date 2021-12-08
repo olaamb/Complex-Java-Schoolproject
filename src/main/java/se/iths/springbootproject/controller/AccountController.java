@@ -4,13 +4,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import se.iths.springbootproject.entity.AccountEntity;
+import se.iths.springbootproject.exception.EntityAlreadyExistsException;
 import se.iths.springbootproject.exception.EntityNotFoundException;
 import se.iths.springbootproject.exception.ListNotFoundOrEmptyException;
 import se.iths.springbootproject.service.AccountService;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("accounts")
@@ -25,6 +25,17 @@ public class AccountController {
 
     @PostMapping
     public ResponseEntity<AccountEntity> createAccount(@RequestBody AccountEntity accountEntity){
+
+            String tempName = accountEntity.getAccountname();
+
+            if (tempName != null && !"".equals(tempName))
+            {
+                AccountEntity accountObject = accountService.findAccountByName(tempName);
+                if (accountObject != null)
+                {
+                    throw new EntityAlreadyExistsException("Account with name: " + accountObject + " is already in use.");
+                }
+            }
             AccountEntity createdAccount = accountService.createAccount(accountEntity);
             return new ResponseEntity<>(createdAccount, HttpStatus.CREATED);
     }

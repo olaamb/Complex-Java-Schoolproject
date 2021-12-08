@@ -33,6 +33,13 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return buildResponseEntity(new ApiError(HttpStatus.NOT_FOUND, errorMessage, ex));
     }
 
+    @ExceptionHandler({EntityAlreadyExistsException.class})
+    public ResponseEntity<Object> entityAlreadyExistsException(EntityAlreadyExistsException ex) {
+        String errorMessage = "Account name is already in use.";
+
+        return  buildResponseEntity(new ApiError(HttpStatus.FORBIDDEN, errorMessage, ex));
+    }
+
 
     // BASE EXCEPTIONS
     @Override
@@ -61,6 +68,8 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
         return buildResponseEntity(new ApiError(HttpStatus.INTERNAL_SERVER_ERROR, errorMessage, ex));
     }
+
+
 
 
 

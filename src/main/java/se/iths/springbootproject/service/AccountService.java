@@ -34,4 +34,8 @@ public class AccountService {
     public Iterable<AccountEntity> findAllAccounts() {
         return accountRepo.findAll();
     }
+
+    public AccountEntity findAccountByName(String accountName) {
+        return accountRepo.findByAccountname(accountName);
+    }
 }
