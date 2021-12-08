@@ -8,6 +8,7 @@ import se.iths.springbootproject.exception.EntityNotFoundException;
 import se.iths.springbootproject.exception.ListNotFoundOrEmptyException;
 import se.iths.springbootproject.service.AccountService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,7 +39,7 @@ public class AccountController {
     @GetMapping("{id}")
     public ResponseEntity<AccountEntity> findAccountById(@PathVariable Long id) {
         AccountEntity foundAccount = accountService.findAccountById(id)
-                .orElseThrow(() -> new ListNotFoundOrEmptyException("List not found or does not exist with id: " + id));
+                .orElseThrow(() -> new EntityNotFoundException("Entity with id: " + id + " was not found!"));
 
         return new ResponseEntity<>(foundAccount, HttpStatus.OK);
     }
@@ -47,6 +48,17 @@ public class AccountController {
     public ResponseEntity<Iterable<AccountEntity>> findAllAccounts() {
         Iterable<AccountEntity> allAccounts = accountService.findAllAccounts();
         return new ResponseEntity<>(allAccounts, HttpStatus.OK);
+    }
+
+    @GetMapping("/getall")
+    public ResponseEntity<List<AccountEntity>> findAllAccountsList() {
+        Iterable<AccountEntity> allAccountsIterable = accountService.findAllAccounts();
+        List <AccountEntity> accountList = new ArrayList<>();
+        allAccountsIterable.forEach(accountList::add);
+        if (accountList.isEmpty()){
+            throw new ListNotFoundOrEmptyException("List is Empty bro!");
+        }
+        return new ResponseEntity<>(accountList, HttpStatus.OK);
     }
 
 }

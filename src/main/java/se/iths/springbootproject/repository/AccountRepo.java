@@ -8,3 +8,4 @@ import se.iths.springbootproject.entity.AccountEntity;
 public interface AccountRepo extends CrudRepository<AccountEntity, Long> {
     AccountEntity findByAccountname (String accountname);
 }
+
