@@ -19,7 +19,7 @@ public class SpringBootProjectApplication {
         return (args) -> {
             roleRepository.save(new RoleEntity("ROLE_ADMIN"));
             roleRepository.save(new RoleEntity("ROLE_USER"));
-        }
+        };
     }
 
 }

@@ -2,7 +2,9 @@ package se.iths.springbootproject.entity;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class AccountEntity {
@@ -15,8 +17,18 @@ public class AccountEntity {
     @OneToMany(mappedBy = "accounts", cascade = CascadeType.ALL)
     private List <CharacterEntity> characters = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "accounts", cascade = CascadeType.ALL)
-    private List <RegionEntity> regions = new ArrayList<>();
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Set<RoleEntity> roles = new HashSet<>();
+
+    public void addRole(RoleEntity role) {
+        roles.add(role);
+        role.getAccounts().add(this);
+    }
+
+    public void removeRole(RoleEntity role) {
+        roles.remove(role);
+        role.getAccounts().remove(this);
+    }
 
     public AccountEntity(String accountname) {
         this.accountname = accountname;
@@ -38,14 +50,6 @@ public class AccountEntity {
 
     public void setAccountname(String accountname) {
         this.accountname = accountname;
-    }
-
-    public List<RegionEntity> getRegions() {
-        return regions;
-    }
-
-    public void setRegions(List<RegionEntity> regions) {
-        this.regions = regions;
     }
 
     public List<CharacterEntity> getCharacters()

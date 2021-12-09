@@ -36,8 +36,8 @@ public class AccountController {
                     throw new EntityAlreadyExistsException("Account with that name is already in use.");
                 }
             }
-            AccountEntity createdAccount = accountService.createAccount(accountEntity);
-            return new ResponseEntity<>(createdAccount, HttpStatus.CREATED);
+        AccountEntity createdAccount = accountService.createAccount(accountEntity);
+        return new ResponseEntity<>(createdAccount, HttpStatus.CREATED);
     }
 
     @DeleteMapping("{id}")
