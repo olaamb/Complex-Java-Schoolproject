@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import se.iths.springbootproject.entity.RoleEntity;
-import se.iths.springbootproject.repository.RoleRepository;
+import se.iths.springbootproject.repository.RoleRepo;
 
 @SpringBootApplication
 public class SpringBootProjectApplication {
@@ -15,10 +15,10 @@ public class SpringBootProjectApplication {
     }
 
     @Bean
-    public CommandLineRunner setUpRole(RoleRepository roleRepository) {
+    public CommandLineRunner setUpRole(RoleRepo roleRepo) {
         return (args) -> {
-            roleRepository.save(new RoleEntity("ROLE_ADMIN"));
-            roleRepository.save(new RoleEntity("ROLE_USER"));
+            roleRepo.save(new RoleEntity("ROLE_ADMIN"));
+            roleRepo.save(new RoleEntity("ROLE_USER"));
         };
     }
 

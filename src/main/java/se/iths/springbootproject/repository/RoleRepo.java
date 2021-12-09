@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import se.iths.springbootproject.entity.RoleEntity;
 
 @Repository
-public interface RoleRepository extends CrudRepository {
+public interface RoleRepo extends CrudRepository<RoleEntity, Long> {
     RoleEntity findByRole(String role);
 }
