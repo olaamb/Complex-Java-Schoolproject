@@ -3,6 +3,7 @@ package se.iths.springbootproject.security;
 import net.bytebuddy.build.Plugin;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 import se.iths.springbootproject.entity.AccountEntity;
 import se.iths.springbootproject.entity.RoleEntity;
 
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Set;
 
-public class ProjectUserPrincipal {
+public class ProjectUserPrincipal implements UserDetails {
 
     private AccountEntity accountEntity;
 
