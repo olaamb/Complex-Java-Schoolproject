@@ -13,6 +13,7 @@ public class AccountEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long accountid;
     private String accountname;
+    private String password;
 
     @OneToMany(mappedBy = "accounts", cascade = CascadeType.ALL)
     private List <CharacterEntity> characters = new ArrayList<>();
@@ -28,6 +29,22 @@ public class AccountEntity {
     public void removeRole(RoleEntity role) {
         roles.remove(role);
         role.getAccounts().remove(this);
+    }
+
+    public Set<RoleEntity> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<RoleEntity> roles) {
+        this.roles = roles;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public AccountEntity(String accountname) {
@@ -66,6 +83,8 @@ public class AccountEntity {
         characters.add(character);
         character.setAccount(this);
     }
+
+
 }
 
 
