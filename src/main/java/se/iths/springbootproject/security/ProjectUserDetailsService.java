@@ -24,6 +24,6 @@ public class ProjectUserDetailsService implements UserDetailsService {
         if (accountEntity == null) {
             throw new UsernameNotFoundException("No account exists with the name: " + "accountname");
         }
-        return new ProjectUserDetailsService(accountEntity);
+        return new ProjectUserPrincipal(accountEntity);
     }
 }

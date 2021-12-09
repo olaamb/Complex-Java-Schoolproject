@@ -1,4 +1,4 @@
 package se.iths.springbootproject.security;
 
-public class UserPrincipal {
+public class ProjectUserPrincipal {
 }
