@@ -25,7 +25,7 @@ public class AccountService {
 
     public AccountEntity createAccount(AccountEntity accountEntity) {
         accountEntity.setPassword(passwordEncoder.encode(accountEntity.getPassword()));
-        RoleEntity roleToAdd = roleRepo.findByRole("ROLE_USER");
+        RoleEntity roleToAdd = roleRepo.findByRole("ROLE_ADMIN");
         accountEntity.addRole(roleToAdd);
         return accountRepo.save(accountEntity);
     }
