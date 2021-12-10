@@ -23,7 +23,7 @@ public class AccountController {
         this.accountService = accountService;
     }
 
-    @PostMapping
+    @PostMapping("/signup")
     public ResponseEntity<AccountEntity> createAccount(@RequestBody AccountEntity accountEntity){
 
             String tempName = accountEntity.getAccountname();
