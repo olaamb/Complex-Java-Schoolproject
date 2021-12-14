@@ -23,7 +23,7 @@ public class AccountController {
         this.accountService = accountService;
     }
 
-    @PostMapping
+    @PostMapping("/signup")
     public ResponseEntity<AccountEntity> createAccount(@RequestBody AccountEntity accountEntity){
 
             String tempName = accountEntity.getAccountname();
@@ -36,8 +36,8 @@ public class AccountController {
                     throw new EntityAlreadyExistsException("Account with that name is already in use.");
                 }
             }
-            AccountEntity createdAccount = accountService.createAccount(accountEntity);
-            return new ResponseEntity<>(createdAccount, HttpStatus.CREATED);
+        AccountEntity createdAccount = accountService.createAccount(accountEntity);
+        return new ResponseEntity<>(createdAccount, HttpStatus.CREATED);
     }
 
     @DeleteMapping("{id}")

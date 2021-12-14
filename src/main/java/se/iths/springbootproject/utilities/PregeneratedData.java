@@ -1,4 +1,4 @@
-package se.iths.springbootproject.utilities;
+/*package se.iths.springbootproject.utilities;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
@@ -65,5 +65,5 @@ public class PregeneratedData {
     backpackRepo.save(backpack3);
 };
     }
-}
+}*/
 
