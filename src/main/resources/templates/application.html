@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]!</h1>
-<p>Here is a lot of data that is specific to you.</p>
+<p>This is your unique backpack.</p>
 <form th:action="@{/logout}" method="post">
     <input type="submit" value="Sign Out"/>
 </form>
