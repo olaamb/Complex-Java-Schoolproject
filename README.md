@@ -28,7 +28,6 @@ Create & Update
 ### JAVA MESSAGE
 - Create: 
 	- /publishmessage
-	- 
 
 ### JSON-Bodies for JAVA MESSAGE
 
